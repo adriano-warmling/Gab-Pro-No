@@ -22,6 +22,6 @@ public class Resposta {
 	//Questão id FK
 	
 	
-	public String resposta;
+	public Long resposta;
 
 }
