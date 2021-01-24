@@ -1,0 +1,30 @@
+package com.gabprono.model;
+
+//import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+
+@Data
+@Entity 
+public class Resposta {
+	
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	public Long id;
+	
+	//Prova id FK
+	
+	//Questão id FK
+	
+	
+	public Long resposta;
+
+}
