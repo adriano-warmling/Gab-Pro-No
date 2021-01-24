@@ -19,6 +19,6 @@ public class Resposta {
 	public Long id;
 
 	@OneToOne
-	public Questao questao;
+	public Resposta resposta;
 
 }

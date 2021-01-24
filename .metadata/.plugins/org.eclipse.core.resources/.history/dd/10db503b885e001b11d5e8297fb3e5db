@@ -10,8 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import com.sun.istack.NotNull;
+import javax.persistence.OneToOne;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,16 +18,34 @@ import lombok.Data;
 
 @Data
 @Entity 
-public class Prova {
+public class Questao {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	public Long id;
 	
 	@Column(nullable=false)
-    public String descricao;
+    public String enunciado;
 	
-	@NotNull
+	@Column(nullable=false)
+    public String opcao1;
+	
+	@Column(nullable=false)
+    public String opcao2;
+	
+	@Column(nullable=false)
+    public String opcao3;
+	
+	@Column(nullable=false)
+    public String opcao4;
+	
+	@Column(nullable=false)
+    public int peso;
+	
 	@OneToMany
-	public List<Questao> questao;
+	public List<Prova> prova;
+	
+	@OneToOne
+	public Resposta resposta;
+
 }
