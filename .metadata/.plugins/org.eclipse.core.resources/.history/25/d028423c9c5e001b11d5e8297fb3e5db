@@ -1,0 +1,24 @@
+package com.gabprono.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gabprono.repository.AlunoRepository;
+
+@Service
+public class AlunoService {
+
+	@Autowired
+	private AlunoRepository alunoRepository;
+
+	@Autowired
+	private 
+	
+	public BigDecimal getMedia(Long id) {
+		
+		return BigDecimal.ZERO;
+	}
+
+}

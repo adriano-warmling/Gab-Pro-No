@@ -1,0 +1,85 @@
+package com.gabprono.service;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gabprono.model.Prova;
+import com.gabprono.model.Resposta;
+
+@Service
+public class AlunoService {
+
+	@Autowired
+	private RespostaService respostaService;
+
+	public BigDecimal getMedia(Long id) {
+
+		Map<Prova, List<Resposta>> mapa = new HashMap<>();
+
+		List<Resposta> respostas = respostaService.getRespostasDosAlunos(id);
+		
+		
+		
+		
+		for (Resposta resposta : respostas) {
+			
+			if (mapa.containsKey(resposta.getProva())) {
+				List<Resposta> respostaMapa = mapa.get(resposta.getProva());
+				respostaMapa.add(resposta);
+				mapa.put(resposta.getProva(), respostaMapa);
+				
+				continue;
+			}
+			
+			mapa.put(resposta.getProva(), List.of(resposta));			
+		}
+		
+		
+		for (Entry<Prova, List<Resposta>> prova : mapa.entrySet()) {
+			
+			Map<Prova, BigDecimal> notas = new HashMap<>();
+			
+			BigDecimal notaDaProva = BigDecimal.ZERO;
+			for (Resposta resposta : respostas) {
+				
+				int respostaAluno = resposta.getResposta();
+				int respostaCorreta = resposta.getQuestao().opcaoCorreta;
+				int peso = resposta.getQuestao().peso;
+				
+				BigDecimal valorQuestao = BigDecimal.ZERO;
+				if (respostaAluno == respostaCorreta) {
+					valorQuestao = BigDecimal.ONE.multiply(BigDecimal.valueOf(peso));
+				}				
+				notaDaProva = notaDaProva.add(valorQuestao);
+				
+			}
+			notas.put(prova.getKey(), notaDaProva);
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+
+		for (Resposta resposta : respostas) {
+
+		}
+
+		return BigDecimal.ZERO;
+	}
+
+}

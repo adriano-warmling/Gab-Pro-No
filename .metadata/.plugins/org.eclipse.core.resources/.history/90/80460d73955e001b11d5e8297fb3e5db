@@ -1,0 +1,5 @@
+package com.gabprono.controller.form;
+
+public class CadastrarQuestaoForm {
+
+}

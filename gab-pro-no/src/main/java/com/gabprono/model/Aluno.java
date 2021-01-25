@@ -22,6 +22,9 @@ public class Aluno {
 	
 	@Column(nullable=false)
     public String nome;
+	
+//	@Column(nullable=false)
+//    public List<notas> nota;   //Guardar as notas das provas.
 
 }
 

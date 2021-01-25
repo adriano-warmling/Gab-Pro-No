@@ -1,0 +1,6 @@
+package com.gabprono.service;
+
+@Service
+public class AlunoService {
+
+}

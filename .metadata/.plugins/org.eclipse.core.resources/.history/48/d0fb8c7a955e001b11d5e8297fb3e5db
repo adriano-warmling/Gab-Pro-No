@@ -1,0 +1,25 @@
+package com.gabprono.controller.form;
+
+import javax.persistence.Column;
+
+public class CadastrarQuestaoForm {
+	
+	@Column(nullable=false)
+    public String enunciado;
+	
+	@Column(nullable=false)
+    public String opcao1;
+	
+	@Column(nullable=false)
+    public String opcao2;
+	
+	@Column(nullable=false)
+    public String opcao3;
+	
+	@Column(nullable=false)
+    public String opcao4;
+	
+	@Column(nullable=false)
+    public int peso;
+
+}

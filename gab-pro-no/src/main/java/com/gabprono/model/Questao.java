@@ -35,15 +35,8 @@ public class Questao {
     public String opcao3;
 	
 	@Column(nullable=false)
-    public String opcao4;
+    public int opcaoCorreta;
 	
-	@Column(nullable=false)
+	@Column(nullable=false)	
     public int peso;
-	
-	@ManyToOne
-	public Prova prova;
-	
-	@OneToOne
-	public Resposta resposta;
-
 }

@@ -1,0 +1,33 @@
+package com.gabprono.service;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gabprono.model.Prova;
+import com.gabprono.model.Resposta;
+
+@Service
+public class AlunoService {
+
+	@Autowired
+	private RespostaService respostaService;
+
+	public BigDecimal getMedia(Long id) {
+
+		List<Resposta> respostas = respostaService.getRespostasDosAlunos(id);
+		
+		Map<Prova, List<Resposta>> respostaPorProva = respostaService.getRespostasDosAlunos(id).stream().collect(Collectors.toMap(Resposta::prova, null))
+
+		for (Resposta resposta : respostas) {
+
+		}
+
+		return BigDecimal.ZERO;
+	}
+
+}

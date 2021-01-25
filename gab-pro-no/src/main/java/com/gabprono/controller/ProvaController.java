@@ -1,6 +1,8 @@
 package com.gabprono.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gabprono.controller.form.CadastrarProvaForm;
+import com.gabprono.controller.form.CadastrarQuestaoForm;
 import com.gabprono.model.Prova;
+import com.gabprono.model.Questao;
 import com.gabprono.repository.ProvaRepository;
+import com.gabprono.repository.QuestaoRepository;
 
 @RestController
 @RequestMapping("/provas")
@@ -21,6 +27,9 @@ public class ProvaController {
 	@Autowired
 	private ProvaRepository provaRepository;
 	
+	@Autowired
+	private QuestaoRepository questaoRepository;
+	
 	@GetMapping
 	public List<Prova> listar() {
 		return provaRepository.findAll();
@@ -28,7 +37,13 @@ public class ProvaController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Prova adicionar(@RequestBody Prova prova) {
+	public Prova adicionar(@RequestBody CadastrarProvaForm form) {		
+		List<Questao> questoes = new ArrayList<>();
+		form.getQuestoes().stream().forEach(q -> questoes.add(CadastrarQuestaoForm.of(q)));	
+		
+		List<Questao> questoesSalvas = questaoRepository.saveAll(questoes);		
+		Prova prova = CadastrarProvaForm.of(form, questoesSalvas);
+		
 		return provaRepository.save(prova);
 	}
 }  

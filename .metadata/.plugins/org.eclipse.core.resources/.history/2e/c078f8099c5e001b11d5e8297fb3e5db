@@ -1,0 +1,14 @@
+package com.gabprono.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gabprono.repository.RespostaRepository;
+
+@Service
+public class RespostaService {
+
+	@Autowired
+	private RespostaRepository respostaRepository;
+
+}
