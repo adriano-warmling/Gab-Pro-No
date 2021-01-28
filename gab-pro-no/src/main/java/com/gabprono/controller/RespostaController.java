@@ -12,26 +12,24 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gabprono.model.Resposta;
-import com.gabprono.repository.RespostaRepository;
+import com.gabprono.service.RespostaService;
 
 @RestController
 @RequestMapping("/respostas")
 public class RespostaController {
 
 	@Autowired
-	private RespostaRepository respostaRepository;
+	private RespostaService respostaService;
 	
 	@GetMapping
 	public List<Resposta> listar() {
-		return respostaRepository.findAll();
+		return respostaService.listar();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Resposta adicionar(@RequestBody Resposta resposta) {
-		
-		
-		
-		return respostaRepository.save(resposta);
+
+		return respostaService.adicionar(resposta);
 	}
 }  

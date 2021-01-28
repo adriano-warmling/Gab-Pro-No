@@ -2,7 +2,6 @@ package com.gabprono.controller.form;
 
 import javax.persistence.Column;
 
-import com.gabprono.model.Prova;
 import com.gabprono.model.Questao;
 
 public class CadastrarQuestaoForm {

@@ -1,11 +1,9 @@
 package com.gabprono.controller.form;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 
-import com.gabprono.controller.QuestaoController;
 import com.gabprono.model.Prova;
 import com.gabprono.model.Questao;
 

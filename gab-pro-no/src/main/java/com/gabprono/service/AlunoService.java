@@ -8,7 +8,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.gabprono.model.Aluno;
 import com.gabprono.model.Prova;
@@ -88,6 +93,17 @@ public class AlunoService {
 
 		return alunosAprovados;
 
+	}
+	
+	@GetMapping
+	public List<Aluno> findAll() {
+		return alunoRepository.findAll();
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Aluno adicionar(@RequestBody Aluno aluno) {
+		return alunoRepository.save(aluno);
 	}
 
 }

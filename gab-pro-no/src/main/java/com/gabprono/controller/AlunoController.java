@@ -14,32 +14,34 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gabprono.model.Aluno;
-import com.gabprono.repository.AlunoRepository;
 import com.gabprono.service.AlunoService;
 
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
 
-	@Autowired
-	private AlunoRepository alunoRepository;
 	
 	@Autowired
 	private AlunoService alunoService;
 	
 	@GetMapping
 	public List<Aluno> listar() {
-		return alunoRepository.findAll();
+		return alunoService.findAll();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Aluno adicionar(@RequestBody Aluno aluno) {
-		return alunoRepository.save(aluno);
+		return alunoService.adicionar(aluno);
 	}
 	
 	@GetMapping("/{id}/media")
 	public BigDecimal getMedia(@PathVariable Long id) {		
 		return alunoService.getMedia(id);
+	}
+	
+	@GetMapping("/aprovados")
+	public List<Aluno> getAprovados() {		
+		return alunoService.getAprovados();
 	}
 }  
