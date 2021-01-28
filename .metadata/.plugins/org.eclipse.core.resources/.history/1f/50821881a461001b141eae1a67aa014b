@@ -53,7 +53,7 @@ public class AlunoService {
 
 		Map<Prova, BigDecimal> notas = new HashMap<>();
 		BigDecimal somaTotalNotas = BigDecimal.ZERO;
-
+//		BigDecimal pesoTotal = BigDecimal.ZERO; // x += y
 		int pesoTotal = 0;
 		
 		for (Entry<Prova, List<Resposta>> prova : mapa.entrySet()) {
@@ -63,7 +63,7 @@ public class AlunoService {
 				int respostaAluno = resposta.getResposta();
 				int respostaCorreta = resposta.getQuestao().opcaoCorreta;
 				int peso = resposta.getQuestao().peso;
-
+//				pesoTotal = pesoTotal.add(resposta.getQuestao().peso); // x += y
 				pesoTotal = peso + pesoTotal;
 				
 				BigDecimal valorQuestao = BigDecimal.ZERO;
@@ -71,16 +71,18 @@ public class AlunoService {
 					valorQuestao = BigDecimal.ONE.multiply(BigDecimal.valueOf(peso));
 				}
 				notaDaProva = notaDaProva.add(valorQuestao);
+//				pesoTotal = pesoTotal.add(pesoTotal); // x += y
 
 			}
+			
 			notaDaProva = notaDaProva.divide(BigDecimal.valueOf(pesoTotal));
 			notaDaProva = notaDaProva.multiply(BigDecimal.valueOf(10));
 			notas.put(prova.getKey(), notaDaProva);
-			somaTotalNotas = somaTotalNotas.add(notaDaProva); 
+			somaTotalNotas = somaTotalNotas.add(notaDaProva); //dividir pelo pesoTotal
 			
 		}
 
-		return somaTotalNotas.divide(BigDecimal.valueOf(notas.size())); 
+		return somaTotalNotas.divide(BigDecimal.valueOf(notas.size())); //média aritimética - numero entre 0 e 1 - 
 	}
 
 	public List<Aluno> getAprovados() {

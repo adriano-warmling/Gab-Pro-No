@@ -72,7 +72,9 @@ public class AlunoService {
 				}
 				notaDaProva = notaDaProva.add(valorQuestao);
 
+
 			}
+			
 			notaDaProva = notaDaProva.divide(BigDecimal.valueOf(pesoTotal));
 			notaDaProva = notaDaProva.multiply(BigDecimal.valueOf(10));
 			notas.put(prova.getKey(), notaDaProva);
