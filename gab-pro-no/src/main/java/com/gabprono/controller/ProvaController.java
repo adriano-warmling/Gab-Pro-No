@@ -19,18 +19,11 @@ import com.gabprono.service.ProvaService;
 @RequestMapping("/provas")
 public class ProvaController {
 
-//	@Autowired
-//	private ProvaRepository provaRepository;
-//	
-//	@Autowired
-//	private QuestaoRepository questaoRepository;
 	
 	@Autowired
 	private ProvaService provaService;
 	
-//	@Autowired
-//	private QuestaoService questaoService;
-	
+
 	@GetMapping
 	public List<Prova> listar() {
 		return provaService.listar();

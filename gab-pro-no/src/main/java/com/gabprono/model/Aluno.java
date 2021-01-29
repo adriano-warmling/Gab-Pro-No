@@ -1,6 +1,6 @@
 package com.gabprono.model;
 
-//import java.util.UUID;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,36 +23,4 @@ public class Aluno {
 	@Column(nullable=false)
     public String nome;
 	
-//	@Column(nullable=false)
-//    public List<notas> nota;   //Guardar as notas das provas.
-
 }
-
-//@Data
-//@Entity //mapeia automaticamente as colunas da tabela
-//public class Aluno {
-//
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	public UUID id;
-//	
-//	@Column(nullable = false)
-//	public String nome;
-//	
-//}
-
-
-//	public Aluno(@JsonPropertyp("id") UUID id
-//			(@JsonProperty("nome") String nome {
-//				this.id = id;
-//				this.nome = nome;
-//			}
-//
-//			public UUID getID() {
-//				return ID;
-//			}
-//
-//			public nome getNome() {
-//				return nome;
-//			}
-//}

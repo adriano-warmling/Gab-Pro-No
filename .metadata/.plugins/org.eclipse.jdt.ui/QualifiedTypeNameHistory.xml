@@ -36,11 +36,12 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="com.gabprono.service.AlunoService"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="com.gabprono.model.Prova"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.gabprono.repository.AlunoRepository"/>
     <fullyQualifiedTypeName name="com.gabprono.model.Aluno"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="com.gabprono.model.Prova"/>
+    <fullyQualifiedTypeName name="com.gabprono.service.QuestaoService"/>
 </qualifiedTypeNameHistroy>

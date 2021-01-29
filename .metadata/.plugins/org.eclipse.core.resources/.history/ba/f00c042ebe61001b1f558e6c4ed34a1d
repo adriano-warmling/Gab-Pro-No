@@ -53,6 +53,9 @@ public class AlunoService {
 
 		Map<Prova, BigDecimal> notas = new HashMap<>();
 		BigDecimal somaTotalNotas = BigDecimal.ZERO;
+
+		int pesoTotal = 0;
+		
 		for (Entry<Prova, List<Resposta>> prova : mapa.entrySet()) {
 			BigDecimal notaDaProva = BigDecimal.ZERO;
 			for (Resposta resposta : prova.getValue()) {
@@ -61,6 +64,8 @@ public class AlunoService {
 				int respostaCorreta = resposta.getQuestao().opcaoCorreta;
 				int peso = resposta.getQuestao().peso;
 
+				pesoTotal = peso + pesoTotal;
+				
 				BigDecimal valorQuestao = BigDecimal.ZERO;
 				if (respostaAluno == respostaCorreta) {
 					valorQuestao = BigDecimal.ONE.multiply(BigDecimal.valueOf(peso));
@@ -68,11 +73,14 @@ public class AlunoService {
 				notaDaProva = notaDaProva.add(valorQuestao);
 
 			}
+			notaDaProva = notaDaProva.divide(BigDecimal.valueOf(pesoTotal));
+			notaDaProva = notaDaProva.multiply(BigDecimal.valueOf(10));
 			notas.put(prova.getKey(), notaDaProva);
-			somaTotalNotas = somaTotalNotas.add(notaDaProva);
+			somaTotalNotas = somaTotalNotas.add(notaDaProva); 
+			
 		}
 
-		return somaTotalNotas.divide(BigDecimal.valueOf(notas.size()));
+		return somaTotalNotas.divide(BigDecimal.valueOf(notas.size())); 
 	}
 
 	public List<Aluno> getAprovados() {

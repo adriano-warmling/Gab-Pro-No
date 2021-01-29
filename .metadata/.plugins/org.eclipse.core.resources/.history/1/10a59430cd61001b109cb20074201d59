@@ -18,7 +18,9 @@ import com.gabprono.service.QuestaoService;
 @RequestMapping("/questaos")
 public class QuestaoController {
 
-
+//	@Autowired
+//	private QuestaoRepository questaoRepository;
+	
 	@Autowired
 	private QuestaoService questaoService;
 	

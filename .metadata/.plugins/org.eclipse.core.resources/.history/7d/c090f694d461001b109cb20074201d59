@@ -32,9 +32,9 @@ INSERT INTO RESPOSTA (id, resposta, aluno_id, prova_id, questao_id) VALUES
 
 *** Comandos Rápidos ***
 
-1) listar todos os alunos:					localhost:8080/alunos
-2) Listar a média final do aluno:			localhost:8080/alunos/{id}/media
-3) Listar alunos aprovados com média >= 7:	localhost:8080/aprovados
+1) listar todos os alunos:		localhost:8080/alunos
+2) Listar a média final do aluno:		localhost:8080/alunos/{id}/media
+3) Listar alunos aprovados com média >= 7:		localhost:8080/aprovados
 
 ___________________________________________________________________________________________________________________
 
