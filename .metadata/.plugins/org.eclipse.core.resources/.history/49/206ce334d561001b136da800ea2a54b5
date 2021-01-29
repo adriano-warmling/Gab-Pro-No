@@ -10,8 +10,7 @@ http://localhost:8080/h2-console/login.jsp
 
 _____________________________________________________________________________________________________________
 
-
-			*** OPCIONAL ***
+*** OPCIONAL ***
 
 Se desejar popular o banco de dados em memória para verificar rapidamente seu funcionamento sugiro o uso dos seguintes comandos:
 
@@ -59,9 +58,8 @@ GET - localhost:8080/alunos
     }
 ]
 ...
-____________________________________________________________________________
 
-			*** PROVAS ***
+** PROVAS **
 
 POST - localhost:8080/provas
  
@@ -100,9 +98,9 @@ GET - localhost:8080/provas
         ]
     }
 ]
-________________________________________________________________________________
 
-			*** RESPOSTAS  ***
+
+*** RESPOSTAS  ***
 
 POST COMPLETO - localhost:8080/respostas
 
@@ -157,9 +155,9 @@ POST SIMPLIFICADO - localhost:8080/respostas
     },
     "resposta": 1
 }
-_____________________________________________________________________________________
 
-			*** API - MÉDIA FINAL DO ALUNO ***
+
+*** API - MÉDIA FINAL DO ALUNO ***
 
 Para listar a média final do aluno:		localhost:8080/alunos/{id}/media
 
@@ -169,7 +167,7 @@ Para listar os alunos aprovados com média >= 7:		localhost:8080/aprovados
 
 __________________________________________________________________________________
 
-			*** Observação: ***
+Observação:
 
 De acordo com as especificações dadas para este desafio, como a média ponderada nunca é efetivamente usada, 
 o ideal para verificar o correto funcionamento dela é que as provas tenham X questões, porém é imperativo que o somatório dos pesos
